@@ -1,0 +1,99 @@
+//author api req
+//author registration
+post http://localhost:5000/lender-api/lender
+Content-Type: application/json
+
+{
+    "userType":"lender",
+    "username":"arun",
+    "password":"arun",
+    "email":"arun@gmail.com"
+}
+
+//author login
+###
+post http://localhost:5000/lender-api/login
+Content-Type: application/json
+
+{
+    "userType":"lender",
+    "username":"arun",
+    "password":"arun"
+}
+###
+
+###
+post http://localhost:5000/lender-api/book
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFydW4iLCJpYXQiOjE3MTg3MjMwMjYsImV4cCI6MTcxODgwOTQyNn0.vsv2xlEpRnlQFW3LBYIsjK9cMFFBXNQRFEFopUvEAuQ
+Content-Type: application/json
+
+{
+    "bookId":"{{$timestamp}}",
+    "title":"Concepts of chemistry",
+    "category":"maths",
+    "Generic Name"  : "School Books",
+    "content":"The book has been tailored to meet the needs 10 + 2 or higher secondary students and for the students who are appearing for a competitive examination.",
+    "dateOfCreation":"{{$datetime iso8601}}",
+    "dateOfModification":"{{$datetime iso8601}}",
+    "imageUrl": "https://m.media-amazon.com/images/I/91ccGUt2sbL._SY385_.jpg",
+    "price":"Rs100 per month",
+    "Language": "English",
+    "pages":"462 pages",
+    "Dimensions":"19.8 x 12.9 x 1.9 cm",
+    "username":"arun",
+    "comments":[],
+    "status":true
+}
+
+//modify or update article by author
+###
+put http://localhost:5000/lender-api/book
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFydW4iLCJpYXQiOjE3MTg2OTA3MDEsImV4cCI6MTcxODc3NzEwMX0.8JuJo4n6OS02-4j6UK7amdy7plXyQXUmErbpg0IcsDo
+Content-Type: application/json
+
+{
+    "bookId":"{{$timestamp}}",
+    "title":"Concepts of Physics",
+    "category":"physics",
+    "Generic Name"  : "Intermediate Books",
+    "content":"The book has been tailored to meet the needs 10 + 2 or higher secondary students and for the students who are appearing for a competitive examination.",
+    "dateOfCreation":"{{$datetime iso8601}}",
+    "dateOfModification":"{{$datetime iso8601}}",
+    "imageUrl": "https://m.media-amazon.com/images/I/91ccGUt2sbL._SY385_.jpg",
+    "price":"Rs65 per month",
+    "Language": "English",
+    "pages":"462 pages",
+    "Dimensions":"19.8 x 12.9 x 1.9 cm",
+    "username":"arun",
+    "comments":[],
+    "status":true
+}
+
+//soft delete an article by article id
+###
+put http://localhost:5000/lender-api/book/1718690560
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFydW4iLCJpYXQiOjE3MTg2OTEwNDIsImV4cCI6MTcxODc3NzQ0Mn0.F2xt5plPfbQtfYvE4OFBOwXbaBX18uPkobV6va3Yh0k
+Content-Type: application/json
+
+{
+    "bookId":"{{$timestamp}}",
+    "title":"Concepts of Physics",
+    "category":"physics",
+    "Generic Name"  : "Intermediate Books",
+    "content":"The book has been tailored to meet the needs 10 + 2 or higher secondary students and for the students who are appearing for a competitive examination.",
+    "dateOfCreation":"{{$datetime iso8601}}",
+    "dateOfModification":"{{$datetime iso8601}}",
+    "imageUrl": "https://m.media-amazon.com/images/I/91ccGUt2sbL._SY385_.jpg",
+    "price":"Rs65 per month",
+    "Language": "English",
+    "pages":"462 pages",
+    "Dimensions":"19.8 x 12.9 x 1.9 cm",
+    "username":"arun",
+    "comments":[],
+    "status":true
+}
+
+//view articles
+###
+get http://localhost:5000/author-api/books/vikas
+
